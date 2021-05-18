@@ -7,3 +7,5 @@ class Product(models.Model):
     price = models.DecimalField(default=300, decimal_places=2, max_digits=100, blank=False)
     description = models.TextField(null=True)
     image = models.ImageField(null=True)
+    category = models.TextField(null=True)
+    quantity = models.IntegerField(default=0, null=False)
