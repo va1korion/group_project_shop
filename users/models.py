@@ -1,9 +1,10 @@
+from django.contrib.auth import admin
 from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
-class MyUser(User):
-    birth_date = models.DateField()
-    cart = models.OneToOneField('cart.Cart', on_delete=models.CASCADE, related_name='my_cart', null=True)
-    order_history = models.JSONField()
+class MyUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='myuser', null=True, blank=True)
+    cart = models.JSONField(default=list)
+    order_history = models.JSONField(default=list)
+    identifier = models.AutoField(primary_key=True)

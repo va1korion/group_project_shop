@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users',
     'pages',
     'cart',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,12 @@ ROOT_URLCONF = 'project_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'users/templates'),
+                 os.path.join(BASE_DIR, 'products/templates'),
+                 os.path.join(BASE_DIR, 'order/templates'),
+                 os.path.join(BASE_DIR, 'cart/templates'),
+                 ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -119,6 +125,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

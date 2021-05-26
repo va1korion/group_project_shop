@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>{{ title }}</h2>
-    <img src="{{ image }}" alt="error-404-1.png">
-    <h4>{% if price %} {{ price }} $ {% else %} Out of Stock {% endif %} </h4>
+    <img src="/media/{{ image }}" alt="error-404-1.png" class="img-fluid">
+    <h4>{% if price %} {{ price }} $ {% else %} Out of Stock {% endif %} </h4> <br>
+    <form method="post"> {% csrf_token %} <button type="submit" class="btn btn-primary" name="btn">Add to cart</button></form>
     <p>{% if description %} {{ description }} {% else %} Coming Soon {% endif %} </p>
-    <button type="submit" class="btn btn-primary">Add to cart</button>
 {% endblock %}

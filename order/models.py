@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
@@ -8,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 class Order(models.Model):
     items = models.JSONField()
-    owner = models.ForeignKey(to=MyUser, null=False, on_delete=models.CASCADE)
+    owner = models.ForeignKey(to=User, null=False, on_delete=models.CASCADE)
     # date = models.DateTimeField(auto_now_add=True)
     # edit = models.DateTimeField(auto_now=True)
 
